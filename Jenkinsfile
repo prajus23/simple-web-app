@@ -25,8 +25,7 @@ pipeline {
                  }
           } 
 
-          stage("Building the applicaction to Staging") 
-			{		
+          
 			stage("Build to staging") {
 				steps {
 				   deploy adapters: [tomcat8(credentialsId: 'd238d15f-fea2-4eb4-b038-22ec521f995f', path: '', url: 'http://ec2-52-14-6-141.us-east-2.compute.amazonaws.com:8888/')], contextPath: null, onFailure: false, war: '**/*.war'
@@ -40,7 +39,7 @@ pipeline {
 					}
 				}
 			}
-			}
+			
 			stage("Perform code analysis") {
 				steps {
 				   sh 'mvn checkstyle:checkstyle'			   
