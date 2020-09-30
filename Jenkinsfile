@@ -28,7 +28,7 @@ pipeline {
           
 			stage("Build to staging") {
 				steps {
-				   deploy adapters: [tomcat8(credentialsId: 'e849c2bd-6021-4a30-a40c-1571e4121219', path: '', url: 'http://ec2-52-14-6-141.us-east-2.compute.amazonaws.com:8888/')], contextPath: null, onFailure: false, war: '**/*.war'
+				   deploy adapters: [tomcat8(credentialsId: 'e849c2bd-6021-4a30-a40c-1571e4121219', path: '', url: 'http://ec2-18-220-141-64.us-east-2.compute.amazonaws.com:8888/')], contextPath: null, onFailure: false, war: '**/*.war'
 				}																								
 				post {
 				    success {
