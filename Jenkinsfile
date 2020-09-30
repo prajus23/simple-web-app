@@ -48,7 +48,11 @@ pipeline {
 			}
 			}
 		 }
-			
+	stage("Email Notification"){
+            steps {
+                emailext body: 'A Test Email', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Jenkins Execution Status', to: 'jiraxray2@gmail.com'
+                }
+         }		
         }
 }
 
